@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circle {
+            position: absolute;
+            /* background-color: tomato; */
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        document.addEventListener('click', (event) => {
+            console.log('X: ' + event.clientX);
+            console.log('Y: ' + event.clientY);
+            // random radius
+            let radius = Math.random() * 100 + 50;
+            // random color
+            let randomColor = '#' + Math.floor(Math.pow(2, 24) * Math.random()).toString(16);
+            let circle = document.createElement('div');
+            circle.classList.add('circle');
+            circle.style.width = 2 * radius + 'px';
+            circle.style.height = 2 * radius + 'px';
+            circle.style.left = event.clientX - radius + 'px';
+            circle.style.top = event.clientY - radius + 'px';
+            circle.style.backgroundColor = randomColor;
+            document.body.appendChild(circle);
+        })
+    </script>
+</body>
+
+</html>
